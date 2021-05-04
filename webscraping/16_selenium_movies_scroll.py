@@ -54,4 +54,14 @@ print(len(movies))
 # 영화정보 가져오기
 for movie in movies:
     title = movie.find("div", attrs={"class":"WsMG1c nnK0zc"}).get_text()
-    print(title)
+    
+    # 할인 전 가격 정보
+    original_price = movie.find("span", attrs={"class":"SUZt4c djCuy"})
+    if original_price:
+        original_price = original_price.get_text()
+    else:
+        print(title, "<할인 되지 않은 영화 제외>")
+        continue
+    # 할인된 가격
+    price = movie.find("span", attrs={"class":})
+    
